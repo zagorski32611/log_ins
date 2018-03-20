@@ -10,18 +10,18 @@
         
                     <table class="table">
                         <tr>
-                            <th> Website </th>&nbsp;
-                            <th> Username </th>&nbsp;
-                            <th> Password </th>&nbsp;
-                            <th> Security Question </th>&nbsp;
-                            <th> Security Answer </th>&nbsp;
+                            <th> Website </th>
+                            <th> Username </th>
+                            <th> Password </th>
+                            <th> Security Question </th>
+                            <th> Security Answer </th>
                         <tr>
                         <% @log_in.each do |log| %>
                         <tr>
-                            <td><%= log.website %></td>&nbsp;
-                            <td><%= log.username %></td>&nbsp;
-                            <td><%= log.password %></td>&nbsp;
-                            <td><%= log.security_question %><td>
+                            <td><%= log.website %></td>
+                            <td><%= log.username %></td>
+                            <td><%= log.password %></td>
+                            <td><%= log.security_question %></td>
                             <td><%= log.security_answer %></td>
                         </tr>
                         <% end %>
