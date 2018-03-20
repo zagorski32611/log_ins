@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# log_ins
+Manage your passwords in my rails app.
+>>>>>>> 2ccd19ff06658135e9ab58d97b573f90fd38087b
