@@ -2,7 +2,13 @@
 
 <%= link_to "Create new LogIn", new_log_in_path %>
 
-    
+<% @log_in.each do |log| %>
+    <%= log.website %>
+    <%= log.username %>
+    <%= log.password %>
+    <%= log.security_question %>
+    <%= log.security_answer %>
+<% end %>    
 
 
 <% if false %>
