@@ -16,8 +16,9 @@
         <td><%= log.website %></td>&nbsp;
         <td><%= log.username %></td>&nbsp;
         <td><%= log.password %></td>&nbsp;
-        <td><%= log.security_question %><td>
+        <td><%= log.security_question %></td>
         <td><%= log.security_answer %></td>
+        <td><%= button_to 'Delete', {action: "destroy", id: @log_in.ids }, method: :delete %></td>
     </tr>
     <% end %>
 </table>
