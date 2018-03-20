@@ -22,6 +22,7 @@ class LogInsController < ApplicationController
       end
     
     def edit
+        @log_ins = LogIn.find()
     end
 
     def update
