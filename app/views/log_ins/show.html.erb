@@ -1,0 +1,11 @@
+<h1> Your saved log in information: </h1>
+
+
+    <%= @log_ins.website %>
+    <%= @log_ins.username %>
+    <%= @log_ins.password %>
+    <%= @log_ins.security_question %>
+    <%= @log_ins.security_answer %>
+</br>
+<%= link_to "Create another", new_log_in_url %>
+<%= link_to "See all", root_path %>

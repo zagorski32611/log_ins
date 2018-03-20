@@ -1,0 +1,20 @@
+<h1> Create New </h1>
+
+<%= form_for @log_in do |f| %>
+    <%= f.label :website %>
+    <%= f.text_field :website %>
+
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+
+    <%= f.label :security_question %>
+    <%= f.text_field :security_question %>
+
+    <%= f.label :security_answer %>
+    <%= f.text_field :security_answer %>
+
+    <%= f.submit "save" %>
+<% end %>
