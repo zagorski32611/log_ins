@@ -22,17 +22,18 @@ class LogInsController < ApplicationController
       end
     
     def edit
-        @log_ins = LogIn.find(params[:id])
+        @log_in = LogIn.find(params[:id])
     end
 
     def update
-        if @log_in.update_attributes(log_in_params)
+        @log_in = LogIn.find(params[:id])
+        if @log_in.update(log_in_params)
             flash[:notice] = "Successfully updated log in!"
             redirect_to root_path
         else
             flash[:alert] = "Error updating log in!"
             render :edit
-        end
+        end  
     end
 
     def show

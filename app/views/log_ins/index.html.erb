@@ -10,6 +10,8 @@
         <th> Password </th>&nbsp;
         <th> Security Question </th>&nbsp;
         <th> Security Answer </th>&nbsp;
+        <th> Edit </th>&nbsp;
+        <th> Delete </th>&nbsp;
     <tr>
     <% @log_in.each do |log| %>
     <tr>
@@ -18,7 +20,8 @@
         <td><%= log.password %></td>&nbsp;
         <td><%= log.security_question %></td>
         <td><%= log.security_answer %></td>
-        <td><%= button_to 'Delete', {action: "destroy", id: @log_in.ids }, method: :delete %></td>
+        <td><%= link_to 'Edit', edit_log_in_path(log) %></td>
+        <td><%= link_to 'Delete', {action: "destroy", id: @log_in.ids }, method: :delete %></td>
     </tr>
     <% end %>
 </table>
