@@ -38,8 +38,8 @@ class LogInsController < ApplicationController
     end
 
     def show
-        #@log_ins = LogIn.find(params[:id])
-        @log_ins = current_user.log_in.find(params[:id])
+        @log_ins = LogIn.find(params[:id])
+        #@log_ins = @log_ins.current_user.find([:id])
     end
 
     def destroy
