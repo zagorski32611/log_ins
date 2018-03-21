@@ -12,6 +12,7 @@ class LogInsController < ApplicationController
     
     def create
         @log_in = LogIn.new(log_in_params)
+        @log_in.user_id = current_user.id
         if @log_in.save(log_in_params)
           flash[:notice] = "Successfully created post!"
           redirect_to log_in_path(@log_in)
@@ -37,7 +38,8 @@ class LogInsController < ApplicationController
     end
 
     def show
-        @log_ins = LogIn.find(params[:id])
+        #@log_ins = LogIn.find(params[:id])
+        @log_ins = current_user.log_in.find(params[:id])
     end
 
     def destroy
@@ -54,7 +56,7 @@ class LogInsController < ApplicationController
     private
 
     def log_in_params
-        params.require(:log_in).permit(:user_id, :website, :username, :password, :security_question, :security_answer)
+        params.require(:log_in).permit(:website, :username, :password, :security_question, :security_answer)
     end   
 
 end
