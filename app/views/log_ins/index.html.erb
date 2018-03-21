@@ -21,7 +21,7 @@
         <td><%= log.security_question %></td>
         <td><%= log.security_answer %></td>
         <td><%= link_to 'Edit', edit_log_in_path(log) %></td>
-        <td><%= link_to 'Delete', {action: "destroy", id: @log_in.ids }, method: :delete %></td>
+        <td><%= link_to 'Delete', {action: "destroy", id: log.id }, method: :delete %></td>
     </tr>
     <% end %>
 </table>
@@ -29,6 +29,7 @@
 
 
 <% if false %>
+<td><%= link_to 'Delete', {action: "destroy", id: @log_in.ids }, method: :delete %></td>
     <%= current_user.log_ins.try(:user)  %>
     <%= log.website %>
     <%= log.username %>
