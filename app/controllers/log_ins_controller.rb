@@ -22,23 +22,34 @@ class LogInsController < ApplicationController
       end
     
     def edit
-        @log_ins = LogIn.find()
+        @log_in = LogIn.find(params[:id])
     end
 
     def update
-        if @log_in.update_attributes(log_in_params)
-            flash[:notice] = "Successfully updated post!"
-            redirect_to log_in_path(@log_in)
-          else
-            flash[:alert] = "Error updating post!"
+        @log_in = LogIn.find(params[:id])
+        if @log_in.update(log_in_params)
+            flash[:notice] = "Successfully updated log in!"
+            redirect_to root_path
+        else
+            flash[:alert] = "Error updating log in!"
             render :edit
-        end
+        end  
     end
 
     def show
         @log_ins = LogIn.find(params[:id])
     end
 
+    def destroy
+        @log_ins = LogIn.find(params[:id])
+        if @log_ins.destroy
+            flash[:notice] = "Successfully delete log in!"
+            redirect_to root_path
+        else
+            flash[:alert] = "Error deleting log in!"
+            render :edit
+        end
+    end
 
     private
 
