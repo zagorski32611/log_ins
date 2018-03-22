@@ -4,7 +4,7 @@ class LogInsController < ApplicationController
     before_action :verify_user, only: [:show, :update, :destroy, :edit]
     
     def index
-        @log_in = LogIn.where(user_id: current_user.id)
+        @log_ins = LogIn.where(user_id: current_user.id)
     end
 
     def new
