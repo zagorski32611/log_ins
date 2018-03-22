@@ -40,7 +40,7 @@ class LogInsController < ApplicationController
     end
 
     def destroy
-        if @log_ins.destroy
+        if @log_in.destroy
             flash[:notice] = "Successfully delete log in!"
             redirect_to root_path
         else
