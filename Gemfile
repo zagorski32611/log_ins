@@ -15,7 +15,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'simple_form'
-
+#gem 'sqlite3'
 group :production do
   gem 'pg'
 end  
