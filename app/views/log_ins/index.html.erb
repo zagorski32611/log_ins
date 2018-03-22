@@ -1,52 +1,39 @@
-<%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
-<h1> Home Page: </h1>
-     
-
-<%= link_to "Create new LogIn", new_log_in_path %>
 <html>
     <body>
         <div id="main-container" class="container-fluid">
             <div class="row">
                 <div id="header">
+                <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
                 </div>
+                <div>
                 <div id="main-content" class="col-xs-9">
                     <h1> All of your passwords in one place: </h1>
                     <h3> <%= link_to "Create New LogIn", new_log_in_path %> </h3>
         
                     <table class="table">
-
-
-<table>
-    <tr>
-        <th> Website </th>&nbsp;
-        <th> Username </th>&nbsp;
-        <th> Password </th>&nbsp;
-        <th> Security Question </th>&nbsp;
-        <th> Security Answer </th>&nbsp;
-        <th> Edit </th>&nbsp;
-        <th> Delete </th>&nbsp;
-    <tr>
-    <% @log_in.each do |log| %>
-    <tr>
-        <td><%= log.website %></td>&nbsp;
-        <td><%= log.username %></td>&nbsp;
-        <td><%= log.password %></td>&nbsp;
-        <td><%= log.security_question %></td>
-        <td><%= log.security_answer %></td>
-        <td><%= link_to 'Edit', edit_log_in_path(log) %></td>
-        <td><%= link_to 'Delete', {action: "destroy", id: log.id }, method: :delete %></td>
-    </tr>
-    <% end %>
-</table>
-
-
-
-<% if false %>
-<td><%= link_to 'Delete', {action: "destroy", id: @log_in.ids }, method: :delete %></td>
-    <%= current_user.log_ins.try(:user)  %>
-    <%= log.website %>
-    <%= log.username %>
-    <%= log.password %>
-    <%= log.security_question %>
-    <%= log.security_answer %>
-<% end %>  
+                        <tr>
+                            <th> Website </th>&nbsp;
+                            <th> Username </th>&nbsp;
+                            <th> Password </th>&nbsp;
+                            <th> Security Question </th>&nbsp;
+                            <th> Security Answer </th>&nbsp;
+                            <th> Edit </th>&nbsp;
+                            <th> Delete </th>&nbsp;
+                        <tr>
+                        <% @log_in.each do |log| %>
+                        <tr>
+                            <td><%= log.website %></td>&nbsp;
+                            <td><%= log.username %></td>&nbsp;
+                            <td><%= log.password %></td>&nbsp;
+                            <td><%= log.security_question %></td>
+                            <td><%= log.security_answer %></td>
+                            <td><%= link_to 'Edit', edit_log_in_path(log) %></td>
+                            <td><%= link_to 'Delete', {action: "destroy", id: log.id }, method: :delete %></td>
+                        </tr>
+                        <% end %>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</html>
