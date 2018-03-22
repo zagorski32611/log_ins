@@ -7,7 +7,7 @@ class CreateLogIns < ActiveRecord::Migration[5.1]
       t.string :security_question
       t.string :security_answer
       t.timestamps
+      t.references :users
     end
-    add_foreign_key :log_ins, :user_id
   end
 end
