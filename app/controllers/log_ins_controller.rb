@@ -3,17 +3,6 @@ class LogInsController < ApplicationController
     before_action :fetch_log_in, only: [:show, :update, :destroy, :edit]
     before_action :verify_user, only: [:show, :update, :destroy, :edit]
     
-    def fetch_log_in
-        @log_in = LogIn.find(params[:id])
-    end
-
-    def verify_user
-        unless @log_in.user_id == current_user.id
-            flash[:error] = "I'm sorry, Dave..."
-            redirect_to root_path
-        end
-    end
-
     def index
         @log_in = LogIn.where(user_id: current_user.id)
     end
@@ -66,4 +55,17 @@ class LogInsController < ApplicationController
         params.require(:log_in).permit(:website, :username, :password, :security_question, :security_answer)
     end   
 
+    def user_exception
+        flash[:error] = "I'm sorry, Dave.."
+        redirect_to root_path
+    end
+
+    def fetch_log_in
+        @log_in = LogIn.find_by(id: params[:id])
+        user_exception unless @log_in.present?
+    end
+
+    def verify_user
+        user_exception unless @log_in.user_id == current_user.id
+    end
 end
