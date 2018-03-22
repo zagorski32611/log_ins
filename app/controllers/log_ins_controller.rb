@@ -1,9 +1,8 @@
 class LogInsController < ApplicationController
     before_action :authenticate_user!
     
-
     def index
-        @log_in = LogIn.all
+        @log_in = LogIn.where(user_id: current_user.id)
     end
 
     def new
