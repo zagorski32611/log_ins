@@ -16,16 +16,8 @@ gem 'devise'
 gem 'simple_form'
 
 group :production do
-  # This is a more secure database for production
-  gem 'pg' 
-end
-
-
-group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
-end
+  gem 'pg'
+end  
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -35,4 +27,11 @@ group :development do
   gem 'sqlite3'
 end
 
+group :development, :test do
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'capybara', '~> 2.13'
+  gem 'selenium-webdriver' 
+end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -1,6 +1,9 @@
-<h1> This is the home page! </h1>
+<%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+<h1> Home Page: </h1>
+     
 
 <%= link_to "Create new LogIn", new_log_in_path %>
+
 
 
 <table>

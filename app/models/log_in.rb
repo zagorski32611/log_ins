@@ -1,4 +1,6 @@
 class LogIn < ApplicationRecord
+    belongs_to :user
     attr_accessor :current_user
-    belongs_to :user, optional: true
+    validates :user_id,  presence: true
+
 end
