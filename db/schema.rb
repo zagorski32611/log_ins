@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322010955) do
+ActiveRecord::Schema.define(version: 20180322010450) do
 
   create_table "log_ins", force: :cascade do |t|
     t.string "website"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180322010955) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.references :users   
   end
 
   create_table "users", force: :cascade do |t|
