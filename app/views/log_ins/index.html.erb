@@ -1,11 +1,10 @@
 <html>
+    <header>
+        <%= render 'layouts/header' %>
+    </header>
     <body>
         <div id="main-container" class="container-fluid">
             <div class="row">
-                <div id="header">
-                <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-                </div>
-                <div>
                 <div id="main-content" class="col-xs-9">
                     <h1> All of your passwords in one place: </h1>
                     <h3> <%= link_to "Create New LogIn", new_log_in_path %> </h3>

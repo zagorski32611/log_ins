@@ -1,26 +1,31 @@
-<%= link_to('Logout', destroy_user_session_path, method: :delete) %> 
+<html>
+    <header>
+        <%= render 'layouts/header' %>
+    </header>
+    <body>
+        <h1> Your saved log in information: </h1>
+        <table class="table">
+            <tr>
+                <th> Website </th>
+                <th> Username </th>
+                <th> Password </th>
+                <th> Security Question </th>
+                <th> Security Answer </th>
+            <tr>
+            <tr>
+                <td><%= @log_in.website %></td>
+                <td><%= @log_in.username %></td>
+                <td><%= @log_in.password %></td>
+                <td><%= @log_in.security_question %></td>
+                <td><%= @log_in.security_answer %></td>
+                <td><%= link_to 'Edit', edit_log_in_path(@log_in)%></td>
+                <td><%= link_to "Delete", log_in_path %></td>
+            </tr>
+        </table>
 
-<h1> Your saved log in information: </h1>
-<table class="table">
-    <tr>
-        <th> Website </th>
-        <th> Username </th>
-        <th> Password </th>
-        <th> Security Question </th>
-        <th> Security Answer </th>
-    <tr>
-    <tr>
-        <td><%= @log_in.website %></td>
-        <td><%= @log_in.username %></td>
-        <td><%= @log_in.password %></td>
-        <td><%= @log_in.security_question %></td>
-        <td><%= @log_in.security_answer %></td>
-        <td><%= link_to 'Edit', edit_log_in_path(@log_in)%></td>
-        <td><%= link_to "Delete", log_in_path %></td>
-    </tr>
-</table>
-
-</br>
-<%= link_to "Create another", new_log_in_url %>
-<br/>
-<%= link_to "See all", root_path %>
+        </br>
+        <%= link_to "Create another", new_log_in_url %>
+        <br/>
+        <%= link_to "See all", root_path %>
+    </body>
+</html>

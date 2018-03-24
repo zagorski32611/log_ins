@@ -1,0 +1,21 @@
+<html>
+    <header class="navbar">
+        <%-# <%= image_tag("avatar-fleet-logo-teal-small.png", class: "img-responsive", id: "navbar-logo") %>
+        <%= link_to "Log In", root_path %>
+        <nav>
+        <div id="navbar">
+            <ul class="navbar-right">
+            <% if user_signed_in? %>
+            <li><%= link_to 'All Log Ins', root_path %></li>
+            <li><%= link_to 'Profile', edit_user_registration_path %></li>
+            <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+            </ul>
+            <% else %>
+            <li><%= link_to 'Log In', new_user_session_path %></li>
+            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <li><%= link_to 'Help', help_path %></li>
+            <% end %>
+            </ul>
+        </nav>
+    </div>
+    </header>
