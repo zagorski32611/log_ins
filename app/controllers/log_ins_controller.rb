@@ -4,7 +4,7 @@ class LogInsController < ApplicationController
     before_action :verify_user, only: [:show, :update, :destroy, :edit]
     
     def index
-        @log_ins = LogIn.where(user_id: current_user.id)
+        @log_in = LogIn.where(user_id: current_user.id)
     end
 
     def new
@@ -15,10 +15,10 @@ class LogInsController < ApplicationController
         @log_in = LogIn.new(log_in_params)
         @log_in.user_id = current_user.id
         if @log_in.save(log_in_params)
-          flash[:success] = "Successfully created post!"
+          flash[:success] = "Successfully created log in!"
           redirect_to log_in_path(@log_in)
         else
-            flash[:alert] = "Error creating new post!"
+            flash[:alert] = "Error creating new log in!"
             render :new
         end
     end
@@ -28,7 +28,7 @@ class LogInsController < ApplicationController
 
     def update
         if @log_in.update(log_in_params)
-            flash[:notice] = "Successfully updated log in!"
+            flash[:success] = "Successfully updated log in!"
             redirect_to root_path
         else
             flash[:alert] = "Error updating log in!"
@@ -56,7 +56,7 @@ class LogInsController < ApplicationController
     end   
 
     def user_exception
-        flash[:error] = "I'm sorry, Dave.."
+        flash[:alert] = "I'm sorry, Dave.."
         redirect_to root_path
     end
 

@@ -10,12 +10,12 @@
         <th> Security Answer </th>
     <tr>
     <tr>
-        <td><%= @log_ins.website %></td>
-        <td><%= @log_ins.username %></td>
-        <td><%= @log_ins.password %></td>
-        <td><%= @log_ins.security_question %></td>
-        <td><%= @log_ins.security_answer %></td>
-        <td><%= link_to 'Edit', edit_log_in_path(@log_ins)%></td>
+        <td><%= @log_in.website %></td>
+        <td><%= @log_in.username %></td>
+        <td><%= @log_in.password %></td>
+        <td><%= @log_in.security_question %></td>
+        <td><%= @log_in.security_answer %></td>
+        <td><%= link_to 'Edit', edit_log_in_path(@log_in)%></td>
         <td><%= link_to "Delete", log_in_path %></td>
     </tr>
 </table>
