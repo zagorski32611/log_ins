@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322010450) do
+ActiveRecord::Schema.define(version: 20180322010955) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "log_ins", force: :cascade do |t|
     t.string "website"
@@ -20,7 +23,9 @@ ActiveRecord::Schema.define(version: 20180322010450) do
     t.string "security_answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.references :users   
+    t.bigint "users_id"
+    t.integer "user_id"
+    t.index ["users_id"], name: "index_log_ins_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|
