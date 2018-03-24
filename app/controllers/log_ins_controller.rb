@@ -4,7 +4,7 @@ class LogInsController < ApplicationController
     before_action :verify_user, only: [:show, :update, :destroy, :edit]
     
     def index
-        @log_in = LogIn.where(user_id: current_user.id)
+        @log_ins = LogIn.where(user_id: current_user.id)
     end
 
     def new
@@ -18,10 +18,10 @@ class LogInsController < ApplicationController
           flash[:success] = "Successfully created post!"
           redirect_to log_in_path(@log_in)
         else
-          flash[:alert] = "Error creating new post!"
-          render :new
+            flash[:alert] = "Error creating new post!"
+            render :new
         end
-      end
+    end
     
     def edit   
     end
@@ -40,8 +40,7 @@ class LogInsController < ApplicationController
     end
 
     def destroy
-        @log_ins = LogIn.find(params[:id])
-        if @log_ins.destroy
+        if @log_in.destroy
             flash[:notice] = "Successfully delete log in!"
             redirect_to root_path
         else
@@ -56,20 +55,17 @@ class LogInsController < ApplicationController
         params.require(:log_in).permit(:website, :username, :password, :security_question, :security_answer)
     end   
 
+    def user_exception
+        flash[:error] = "I'm sorry, Dave.."
+        redirect_to root_path
+    end
+
     def fetch_log_in
-        @log_in = LogIn.find(params[:id])
+        @log_in = LogIn.find_by(id: params[:id])
         user_exception unless @log_in.present?
     end
 
     def verify_user
-        user_exception unless @log_in.id == current_user.id
+        user_exception unless @log_in.user_id == current_user.id
     end
-
-    def user_exception
-        flash[:error] = "I'm sorry, Dave..."
-        redirect_to root_path
-    end
-
-
-
 end
